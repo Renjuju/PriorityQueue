@@ -1,17 +1,6 @@
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class PriorityQueue<T>{
-    public static void main(String[] args) {
-        PriorityQueue<String> queue = new PriorityQueue<>();
-
-        queue.insert("Hello", 3);
-        queue.insert("Hellosasd", 2);
-        queue.insert("ello", 3);
-        queue.ExtractMax();
-        System.out.println(queue.maximum());
-
-    }
 
     private HashMap<Integer, ArrayList<T>> map = new HashMap<>();
 

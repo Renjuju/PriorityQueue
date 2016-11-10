@@ -35,6 +35,30 @@ public class PriorityQueueTest {
         Assert.assertEquals("Expects Nissan to appear now in the queue", "Nissan", queue.ExtractMax().getName());
     }
 
+    @Test
+    public void checkInsertionsWithIntegers() {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.insert(4, 3);
+        queue.insert(2, 1);
+        queue.insert(3332, 564);
+
+        Integer val = queue.ExtractMax();
+        Integer insertion = 3332;
+        Assert.assertEquals("Expects highest priority to equal 3332",val, insertion);
+    }
+
+    @Test
+    public void checkForMaximum() {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.insert(434, 3);
+        queue.insert(234, 1);
+        queue.insert(23, 564);
+
+        Integer val = queue.maximum();
+        Integer insertion = 23;
+
+        Assert.assertEquals("Expects to get max priority value", val, insertion);
+    }
     //making a class to test the queue with
     private class car {
         private String name;

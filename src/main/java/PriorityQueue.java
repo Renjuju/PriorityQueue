@@ -5,7 +5,6 @@ public class PriorityQueue<T>{
     private HashMap<Integer, ArrayList<T>> map = new HashMap<>();
 
     public void insert(T value, int priority) {
-        System.out.println("Inserting " + value);
         ArrayList<T> list;
         if(map.containsKey(priority)) {
             list = map.get(priority);
@@ -30,11 +29,18 @@ public class PriorityQueue<T>{
                 max = Integer.parseInt(pair.getKey().toString());
             }
         }
-        return map.get(max);
+        if(map.get(max).size() == 0) {
+            map.remove(max);
+            return getMaxList();
+        } else {
+            return map.get(max);
+        }
+
     }
+
     public T ExtractMax() {
        ArrayList<T> maxList = getMaxList();
-        T val = maxList.get(0);
+        T val = maxList.iterator().next();
         maxList.remove(0);
         return val;
     }

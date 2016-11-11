@@ -59,6 +59,24 @@ public class PriorityQueueTest {
 
         Assert.assertEquals("Expects to get max priority value", val, insertion);
     }
+
+    @Test
+    public void insertABunchOfRandomCarsAndExtract() {
+        PriorityQueue<car> queue = new PriorityQueue<>();
+
+        try {
+            for(int i = 0; i < 100; i++) {
+                queue.insert(new car("car"), i);
+            }
+
+            for(int i = 0; i < 100; i++) {
+                queue.ExtractMax();
+            }
+        } catch(Exception e) {
+            Assert.fail("Should not crash");
+        }
+    }
+
     //making a class to test the queue with
     private class car {
         private String name;
